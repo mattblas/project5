@@ -1,8 +1,8 @@
 {% extends "ClimbingApp/layout.html" %}
 
 {% block body %}
-
-    <h2>Register</h2>
+<div class="container">
+    <h2>Register</h2><br>
 
     {% if message %}
         <div>{{ message }}</div>
@@ -12,19 +12,19 @@
         {% csrf_token %}
         <div class="form-group">
             <input class="form-control" autofocus type="text" name="username" placeholder="Username">
-        </div>
+        </div><br>
         <div class="form-group">
             <input class="form-control" type="email" name="email" placeholder="Email Address">
-        </div>
+        </div><br>
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
+        </div><br>
         <div class="form-group">
             <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
-        </div>
+        </div><br>
         <input class="btn btn-primary" type="submit" value="Register">
-    </form>
+    </form><br>
 
     Already have an account? <a href="{% url 'login' %}">Log In here.</a>
-
+</div>
 {% endblock %}
