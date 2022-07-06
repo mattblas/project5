@@ -10,6 +10,11 @@ from .models import User
 def index(request):
     return render(request, "ClimbingApp/index.html")
 
+def todo(request):
+    return render(request, "ClimbingApp/todo.html")
+
+def playground(request):
+    return render(request, "ClimbingApp/playground.html")
 
 def login_view(request):
     if request.method == "POST":

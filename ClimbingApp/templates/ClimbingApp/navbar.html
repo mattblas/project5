@@ -17,10 +17,13 @@
     {% comment %} --- TEST LINK ---  {% endcomment %}
 
                 <li class="nav-item">
-                <a class="nav-link" href="#">Playground</a>
+                    <a class="nav-link" href="{% url 'playground' %}">Playground</a>
                 </li>
 
-
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'todo' %}">TODO / FIX</a>
+                </li>
+<hr>
     {% comment %} STREFA DLA NIEZALOGOWANYCH UŻYTKOWNIKÓW {% endcomment %}
 
     {% if not request.user.is_authenticated %}
