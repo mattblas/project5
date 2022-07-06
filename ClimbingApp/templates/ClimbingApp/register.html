@@ -4,10 +4,6 @@
 <div class="container">
     <h2>Register</h2><br>
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
         <div class="form-group">

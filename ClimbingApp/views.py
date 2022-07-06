@@ -11,13 +11,12 @@ def index(request):
     return render(request, "ClimbingApp/index.html")
 
 def update_profile(request):
-    return render(request, "ClimbingApp/update_profile.html")    
-
-def todo(request):
-    return render(request, "ClimbingApp/todo.html")
-
-def playground(request):
-    return render(request, "ClimbingApp/playground.html")
+    if request.user.is_authenticated:
+        return render(request, "ClimbingApp/update_profile.html")
+    else:
+        return render(request, "ClimbingApp/register.html", {
+            "message": "You are not registered. Please register."
+        })    
 
 def login_view(request):
     if request.method == "POST":
@@ -69,3 +68,9 @@ def register(request):
         return HttpResponseRedirect(reverse("update_profile"))
     else:
         return render(request, "ClimbingApp/register.html")
+
+def todo(request):
+    return render(request, "ClimbingApp/todo.html")
+
+def playground(request):
+    return render(request, "ClimbingApp/playground.html")
