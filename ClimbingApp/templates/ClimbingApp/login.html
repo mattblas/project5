@@ -3,10 +3,10 @@
 {% block body %}
 <div class="container">
     <h2>Login</h2><br>
-
+<!-- 
     {% if message %}
         <div>{{ message }}</div>
-    {% endif %}
+    {% endif %} -->
 
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}

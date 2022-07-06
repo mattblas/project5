@@ -10,6 +10,9 @@ from .models import User
 def index(request):
     return render(request, "ClimbingApp/index.html")
 
+def update_profile(request):
+    return render(request, "ClimbingApp/update_profile.html")    
+
 def todo(request):
     return render(request, "ClimbingApp/todo.html")
 
@@ -63,6 +66,6 @@ def register(request):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("update_profile"))
     else:
         return render(request, "ClimbingApp/register.html")

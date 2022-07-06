@@ -1,0 +1,47 @@
+
+{% extends "ClimbingApp/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h2>update profile</h2>
+    <br><br>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>profile Name</label>
+            <input autofocus class="form-control" type="text" name="profile_name" placeholder="...">
+        </div><br>
+        <div class="form-group">
+            <label>gender</label>
+            <select class="form-control" id="Form_profile_gender">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div><br>
+
+        <div class="form-group">
+            <label>birthday</label>
+            <input class="form-control" type="date" name="profile_name" placeholder="datepicker">
+        </div><br>
+
+        <label>activate profile</label>
+        <select class="form-select" aria-label="Default select example">
+            
+            <option value="True">Activcate</option>
+            <option value="False">Disactivate</option>
+        </select><br>
+
+        <table style="width: auto; float: right;">
+            <tr>
+                <td align="center">
+                    <button type="button" class="btn btn-success">Submit</button>
+                </td>
+                <td align="center">
+                    <button type="button" class="btn btn-secondary">Continue as guest</button>
+                </td>
+            </tr>
+        </table>
+    </form><br>
+    
+</div>
+{% endblock %}
