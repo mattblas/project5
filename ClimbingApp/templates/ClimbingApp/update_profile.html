@@ -7,10 +7,12 @@
     <br><br>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
+        
         <div class="form-group">
             <label>profile Name</label>
             <input autofocus class="form-control" type="text" name="profile_name" placeholder="...">
         </div><br>
+
         <div class="form-group">
             <label>gender</label>
             <select class="form-control" id="Form_profile_gender">
@@ -25,8 +27,7 @@
         </div><br>
 
         <label>activate profile</label>
-        <select class="form-select" aria-label="Default select example">
-            
+        <select class="form-select" aria-label="Default select example"> 
             <option value="True">Activcate</option>
             <option value="False">Disactivate</option>
         </select><br>
@@ -41,7 +42,7 @@
                 </td>
             </tr>
         </table>
-    </form><br>
-    
+
+    </form>
 </div>
 {% endblock %}
