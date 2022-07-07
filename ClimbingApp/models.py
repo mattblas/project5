@@ -1,7 +1,6 @@
 from enum import unique
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.forms import DateTimeField
 
 
 class User(AbstractUser):
@@ -20,11 +19,11 @@ class climbedRoute(models.Model):
     climbed_route_date  = models.DateTimeField(auto_now_add=True) 
 
 class userProfile(models.Model):
+
     profile_name        = models.ForeignKey(User, related_name="profile_name", on_delete=models.CASCADE)
-    profile_gender      = models.CharField(max_length=30)
+    profile_gender      = models.CharField(max_length=7)
     profile_birth       = models.DateField()
     profile_active      = models.BooleanField(default=True)
     profile_is_staff    = models.BooleanField(default=False)
-    profile_routes      = models.ManyToManyField(climbedRoute, related_name="profile_routes", default=None)
-    # profile_avatar      = ???
+    profile_routes      = models.ManyToManyField(climbedRoute, related_name="profile_routes", blank=True)
 

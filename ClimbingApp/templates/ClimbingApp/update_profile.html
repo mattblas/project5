@@ -5,17 +5,16 @@
 <div class="container">
     <h2>update profile</h2>
     <br><br>
-    <form action="{% url 'login' %}" method="post">
+
+    <form action="{% url 'update_profile' %}" method="post">
         {% csrf_token %}
-        
-        <div class="form-group">
-            <label>profile Name</label>
-            <input autofocus class="form-control" type="text" name="profile_name" placeholder="...">
-        </div><br>
+        <input type="hidden" name="form_profile_name" value="{{request.user}}">
+        <input type="hidden" name="profile_active" value="{{True}}">
+        <input type="hidden" name="profile_is_staff" value="{{False}}">
 
         <div class="form-group">
             <label>gender</label>
-            <select class="form-control" id="Form_profile_gender">
+            <select class="form-control" name="form_profile_gender">
               <option>Male</option>
               <option>Female</option>
             </select>
@@ -23,22 +22,13 @@
 
         <div class="form-group">
             <label>birthday</label>
-            <input class="form-control" type="date" name="profile_name" placeholder="datepicker">
+            <input class="form-control" type="date" name="form_profile_birth" placeholder="datepicker">
         </div><br>
-
-        <label>activate profile</label>
-        <select class="form-select" aria-label="Default select example"> 
-            <option value="True">Activcate</option>
-            <option value="False">Disactivate</option>
-        </select><br>
 
         <table style="width: auto; float: right;">
             <tr>
                 <td align="center">
-                    <button type="button" class="btn btn-success">Submit</button>
-                </td>
-                <td align="center">
-                    <button type="button" class="btn btn-secondary">Continue as guest</button>
+                    <input class="btn btn-success" type="submit" value="Submit">
                 </td>
             </tr>
         </table>

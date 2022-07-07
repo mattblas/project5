@@ -1,22 +1,32 @@
+from re import U
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User
+from .models import User, userProfile
 
 
 def index(request):
     return render(request, "ClimbingApp/index.html")
 
 def update_profile(request):
-    if request.user.is_authenticated:
-        return render(request, "ClimbingApp/update_profile.html")
+    if request.method == "POST":
+        try:
+            pg = request.POST['form_profile_gender']
+            pb = request.POST['form_profile_birth']
+            b = userProfile(profile_name=request.user, profile_gender=pg, profile_birth=pb,)
+            b.save()
+            return render(request, "ClimbingApp/index.html", {
+                "message": "Profile updated."
+            })
+        except:
+            return render(request, "ClimbingApp/update_profile.html", {
+                "message": "Something went wrong while updating profile. Try again.."
+            })
     else:
-        return render(request, "ClimbingApp/register.html", {
-            "message": "You are not registered. Please register."
-        })    
+        return render(request, "ClimbingApp/update_profile.html", {})
 
 def login_view(request):
     if request.method == "POST":
