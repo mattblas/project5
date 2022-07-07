@@ -9,7 +9,11 @@ from .models import User, userProfile
 
 
 def index(request):
-    return render(request, "ClimbingApp/index.html")
+    if request.user.is_authenticated and not userProfile.objects.filter(profile_name=request.user).exists():
+        return render(request, "ClimbingApp/update_profile.html", {
+        "message": "Please update your profile."})
+    else:
+        return render(request, "ClimbingApp/index.html")
 
 def update_profile(request):
     if request.method == "POST":
@@ -39,7 +43,12 @@ def login_view(request):
         # Check if authentication successful
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            if userProfile.objects.filter(profile_name=request.user).exists():
+                return HttpResponseRedirect(reverse("index"))
+            else:
+                return render(request, "ClimbingApp/update_profile.html", {
+                "message": "Please update your profile."
+            })
         else:
             return render(request, "ClimbingApp/login.html", {
                 "message": "Invalid username and/or password."
