@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ClimbingApp', '0003_alter_userprofile_profile_routes'),
+        ('capstone', '0003_alter_userprofile_profile_routes'),
     ]
 
     operations = [

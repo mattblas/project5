@@ -5,17 +5,17 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
-    <title>{% block title %}ClimbingApp{% endblock %}</title>
+    <title>{% block title %}capstone{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="{% static 'ClimbingApp/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'capstone/styles.css' %}" rel="stylesheet">
 </head>
 
 <body>
-    {% include 'ClimbingApp/navbar.html' %}
+    {% include 'capstone/navbar.html' %}
 
     <div style="background-color: #292929; height: 150px;">
         <center>
-            <div style="padding-top: 55px"><a href="{% url 'index' %}"><img src="{% static 'ClimbingApp/AppLogo.png' %}" alt="AppLogo" height="100px"></a></div>
+            <div style="padding-top: 55px"><a href="{% url 'index' %}"><img src="{% static 'capstone/AppLogo.png' %}" alt="AppLogo" height="100px"></a></div>
         </center>
     </div>
     

@@ -1,7 +1,6 @@
-from re import U
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -10,10 +9,10 @@ from .models import User, userProfile
 
 def index(request):
     if request.user.is_authenticated and not userProfile.objects.filter(profile_name=request.user).exists():
-        return render(request, "ClimbingApp/update_profile.html", {
+        return render(request, "capstone/update_profile.html", {
         "message": "Please update your profile."})
     else:
-        return render(request, "ClimbingApp/index.html")
+        return render(request, "capstone/index.html")
 
 def update_profile(request):
     if request.method == "POST":
@@ -22,15 +21,15 @@ def update_profile(request):
             pb = request.POST['form_profile_birth']
             b = userProfile(profile_name=request.user, profile_gender=pg, profile_birth=pb,)
             b.save()
-            return render(request, "ClimbingApp/index.html", {
+            return render(request, "capstone/index.html", {
                 "message": "Profile updated."
             })
         except:
-            return render(request, "ClimbingApp/update_profile.html", {
+            return render(request, "capstone/update_profile.html", {
                 "message": "Something went wrong while updating profile. Try again.."
             })
     else:
-        return render(request, "ClimbingApp/update_profile.html", {})
+        return render(request, "capstone/update_profile.html", {})
 
 def login_view(request):
     if request.method == "POST":
@@ -46,15 +45,15 @@ def login_view(request):
             if userProfile.objects.filter(profile_name=request.user).exists():
                 return HttpResponseRedirect(reverse("index"))
             else:
-                return render(request, "ClimbingApp/update_profile.html", {
+                return render(request, "capstone/update_profile.html", {
                 "message": "Please update your profile."
             })
         else:
-            return render(request, "ClimbingApp/login.html", {
+            return render(request, "capstone/login.html", {
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "ClimbingApp/login.html")
+        return render(request, "capstone/login.html")
 
 
 def logout_view(request):
@@ -71,7 +70,7 @@ def register(request):
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
         if password != confirmation:
-            return render(request, "ClimbingApp/register.html", {
+            return render(request, "capstone/register.html", {
                 "message": "Passwords must match."
             })
 
@@ -80,16 +79,16 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
         except IntegrityError:
-            return render(request, "ClimbingApp/register.html", {
+            return render(request, "capstone/register.html", {
                 "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("update_profile"))
     else:
-        return render(request, "ClimbingApp/register.html")
+        return render(request, "capstone/register.html")
 
 def todo(request):
-    return render(request, "ClimbingApp/todo.html")
+    return render(request, "capstone/todo.html")
 
 def playground(request):
-    return render(request, "ClimbingApp/playground.html")
+    return render(request, "capstone/playground.html")

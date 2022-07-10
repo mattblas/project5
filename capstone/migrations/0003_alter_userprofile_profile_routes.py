@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ClimbingApp', '0002_climbedroute_route_userprofile_and_more'),
+        ('capstone', '0002_climbedroute_route_userprofile_and_more'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='userprofile',
             name='profile_routes',
-            field=models.ManyToManyField(blank=True, related_name='profile_routes', to='ClimbingApp.climbedroute'),
+            field=models.ManyToManyField(blank=True, related_name='profile_routes', to='capstone.climbedroute'),
         ),
     ]

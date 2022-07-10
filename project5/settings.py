@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'ClimbingApp',
+    'capstone',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,7 +81,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = "ClimbingApp.User"
+AUTH_USER_MODEL = "capstone.User"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

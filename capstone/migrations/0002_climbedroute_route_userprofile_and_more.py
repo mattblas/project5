@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ClimbingApp', '0001_initial'),
+        ('capstone', '0001_initial'),
     ]
 
     operations = [
@@ -36,12 +36,12 @@ class Migration(migrations.Migration):
                 ('profile_active', models.BooleanField(default=True)),
                 ('profile_is_staff', models.BooleanField(default=False)),
                 ('profile_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='profile_name', to=settings.AUTH_USER_MODEL)),
-                ('profile_routes', models.ManyToManyField(default=None, related_name='profile_routes', to='ClimbingApp.climbedroute')),
+                ('profile_routes', models.ManyToManyField(default=None, related_name='profile_routes', to='capstone.climbedroute')),
             ],
         ),
         migrations.AddField(
             model_name='climbedroute',
             name='climbed_route_name',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='climbed_route_name', to='ClimbingApp.route'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='climbed_route_name', to='capstone.route'),
         ),
     ]
