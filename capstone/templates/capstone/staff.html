@@ -14,13 +14,48 @@
     </nav><hr>
 
 
-    <div id="add_new_route">add new route</div>
+    <div id="add_new_route">
+        
+        <h4 align="right">Add new route</h4>
 
-    <div id="edit_route">edit route</div>
+        <form action="{% url 'add_route' %}" method="POST">
+            {% csrf_token %}
 
-    <div id="download_score">download scores</div>
+            <div class="mb-3">
+                <label name="" class="form-label">Route name</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            </div>
+        
+            <label name="" class="form-label">Route grade</label>
+            <select class="form-select" aria-label="Default select example">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4a">4a</option>
+                <option value="4b">4b</option>
+                <option value="4c">4c</option>
+              </select>
 
-    <div id="do_something">do something</div>
+              <br>
+              <div class="submit_button">
+                <input class="btn btn-success" type="submit" value="Add route">
+              </div>
+              
+        </form>
+
+    </div>
+
+    <div id="edit_route">        
+        <h4 align="right">Edit route</h4>
+    </div>
+
+    <div id="download_score">
+        <h4 align="right">Download scores</h4>
+    </div>
+
+    <div id="do_something">
+        <h4 align="right">Do something</h4>
+    </div>
 </div>
 
     {% block script %}

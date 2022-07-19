@@ -7,6 +7,12 @@
     cursor: pointer;    
 }
 
+.submit_button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .staff-link {
     margin: 15px;
 }

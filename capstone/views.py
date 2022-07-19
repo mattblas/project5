@@ -7,8 +7,41 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .models import User, userProfile, Route
-# from django.contrib import messages
 
+points_table = {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4a": "4",
+    "4b": "5",
+    "4c": "6",
+    "5a": "7",
+    "5b": "8",
+    "5c": "9",
+    "6a": "10",
+    "6a+": "11",
+    "6b": "12",
+    "6b+": "13",
+    "6c": "14",
+    "6c+": "15",
+    "7a": "16",
+    "7a+": "17",
+    "7b": "18",
+    "7b+": "19",
+    "7c": "20",
+    "7c+": "21",
+    "8a": "22",
+    "8a+": "23",
+    "8b": "24",
+    "8b+": "25",
+    "8c": "26",
+    "8c+": "27",
+    "9a": "28",
+    "9a+": "29",
+    "9b": "30",
+    "9b+": "31",
+    "9c": "32",
+}
 
 def index(request):
     if request.user.is_authenticated and not userProfile.objects.filter(profile_name=request.user).exists():
@@ -20,7 +53,8 @@ def index(request):
 def staff(request):
     return render(request, "capstone/staff.html")
 
-# def add_route(request):
+def add_route(request):
+    return render(request, "capstone/staff.html")
 
 def update_profile(request):
     if request.method == "POST":
