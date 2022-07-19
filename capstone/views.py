@@ -50,6 +50,9 @@ def index(request):
     else:
         return render(request, "capstone/index.html")
 
+def edit_route(request):
+    return render(request, "capstone/staff.html", {})
+
 def staff(request):
     all_routes = Route.objects.all()
     return render(request, "capstone/staff.html", {
@@ -73,9 +76,6 @@ def add_route(request):
             })
     else: 
         return render(request, "capstone/staff.html", {})
-
-def edit_route(request):
-    return render(request, "capstone/staff.html", {})
 
 def update_profile(request):
     if request.method == "POST":
@@ -118,11 +118,9 @@ def login_view(request):
     else:
         return render(request, "capstone/login.html")
 
-
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
-
 
 def register(request):
     if request.method == "POST":
