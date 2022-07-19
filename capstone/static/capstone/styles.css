@@ -10,3 +10,19 @@
 .staff-link {
     margin: 15px;
 }
+
+#add_new_route {
+    display: none;
+}
+
+#edit_route {
+    display: none;
+}
+
+#download_score {
+    display: none;
+}
+
+#do_something {
+    display: none;
+}
