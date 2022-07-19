@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function add_new_route() {
     document.querySelector('#add_new_route').style.display = 'block';
     document.querySelector('#edit_route').style.display = 'none';
+    document.querySelector('#edit_route_form').style.display = 'none';
     document.querySelector('#download_score').style.display = 'none';
     document.querySelector('#do_something').style.display = 'none';
 }
@@ -20,6 +21,7 @@ function add_new_route() {
 function edit_route() {
     document.querySelector('#add_new_route').style.display = 'none';
     document.querySelector('#edit_route').style.display = 'block';
+    document.querySelector('#edit_route_form').style.display = 'none';
     document.querySelector('#download_score').style.display = 'none';
     document.querySelector('#do_something').style.display = 'none';
 }
@@ -27,6 +29,7 @@ function edit_route() {
 function download_score() {
     document.querySelector('#add_new_route').style.display = 'none';
     document.querySelector('#edit_route').style.display = 'none';
+    document.querySelector('#edit_route_form').style.display = 'none';
     document.querySelector('#download_score').style.display = 'block';
     document.querySelector('#do_something').style.display = 'none';
 }
@@ -34,6 +37,7 @@ function download_score() {
 function do_something() {
     document.querySelector('#add_new_route').style.display = 'none';
     document.querySelector('#edit_route').style.display = 'none';
+    document.querySelector('#edit_route_form').style.display = 'none';
     document.querySelector('#download_score').style.display = 'none';
     document.querySelector('#do_something').style.display = 'block';
 }
