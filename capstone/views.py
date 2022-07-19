@@ -56,13 +56,18 @@ def staff(request):
 def add_route(request):
     if request.method == "POST":
         rn = request.POST["form_route_name"]
-        rg = request.POST["form_route_grade"]
-        rp = int(points_table[rg])
-        b = Route.objects.create(route_name = rn, route_grade = rg, route_points = rp)
-        b.save()
-        return render(request, "capstone/staff.html", {
-            "message": "Route added"
+        if Route.objects.filter(route_name = rn).exists():
+            return render(request, "capstone/staff.html", {
+        "message": "Route already exists"
         })
+        else:      
+            rg = request.POST["form_route_grade"]
+            rp = int(points_table[rg])
+            b = Route.objects.create(route_name = rn, route_grade = rg, route_points = rp)
+            b.save()
+            return render(request, "capstone/staff.html", {
+                "message": "Route added successfully"
+            })
     else: 
         return render(request, "capstone/staff.html", {
             "message": "something wen't wrong"
