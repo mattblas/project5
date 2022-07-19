@@ -1,8 +1,6 @@
-from email import message
-from urllib import response
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -60,6 +58,7 @@ def staff(request):
     })
 
 def add_route(request):
+    all_routes = Route.objects.all()
     if request.method == "POST":
         rn = request.POST["form_route_name"]
         if Route.objects.filter(route_name = rn).exists():
@@ -72,7 +71,8 @@ def add_route(request):
             b = Route.objects.create(route_name = rn, route_grade = rg, route_points = rp)
             b.save()
             return render(request, "capstone/staff.html", {
-                "message": "Route added successfully"
+                "message": "Route added successfully",
+                "all_routes": all_routes,
             })
     else: 
         return render(request, "capstone/staff.html", {})
