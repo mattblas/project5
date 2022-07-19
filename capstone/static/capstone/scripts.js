@@ -16,6 +16,8 @@ function add_new_route() {
     document.querySelector('#download_score').style.display = 'none';
     document.querySelector('#do_something').style.display = 'none';
 
+    document.querySelector('#add_new_route').innerHTML = `<h4 align="right">Add new route</h4>`;
+
 }
 
 function edit_route() {

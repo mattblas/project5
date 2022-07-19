@@ -1,10 +1,13 @@
+from email import message
+from urllib import response
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, userProfile
+from .models import User, userProfile, Route
+# from django.contrib import messages
 
 
 def index(request):
@@ -16,6 +19,8 @@ def index(request):
 
 def staff(request):
     return render(request, "capstone/staff.html")
+
+# def add_route(request):
 
 def update_profile(request):
     if request.method == "POST":
