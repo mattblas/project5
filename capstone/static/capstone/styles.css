@@ -1,3 +1,7 @@
-nav .navbar-nav .nav-item .nav-link{
+/* nav .navbar-nav .nav-item .nav-link{
+    color: grey !important;
+} */
+
+.nav-link {
     color: grey !important;
 }

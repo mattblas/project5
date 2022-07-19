@@ -14,4 +14,5 @@ urlpatterns = [
 
     path("todo", views.todo, name="todo"),
     path("playground", views.playground, name="playground"),
+    path("staff", views.staff, name="staff"),
 ]

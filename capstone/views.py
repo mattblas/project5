@@ -14,6 +14,9 @@ def index(request):
     else:
         return render(request, "capstone/index.html")
 
+def staff(request):
+    return render(request, "capstone/staff.html")
+
 def update_profile(request):
     if request.method == "POST":
         try:

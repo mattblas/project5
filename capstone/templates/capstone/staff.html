@@ -1,0 +1,60 @@
+
+{% extends "capstone/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <h2>What would you like to do?</h2><br>
+    
+    <nav class="nav nav-pills nav-justified">
+        <a class="nav-link" href="#">Add new route</a>
+        <a class="nav-link" href="#">Edit route</a>
+        <a class="nav-link" href="#">Download scores</a>
+        <a class="nav-link" href="#">Do Something</a>
+    </nav><hr>
+
+
+    <div id="add_new_route">
+        <h4 align="right">Add new route</h4>
+        <form action="{% url 'update_profile' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_profile_name" value="{{request.user}}">
+            <input type="hidden" name="profile_active" value="{{True}}">
+            <input type="hidden" name="profile_is_staff" value="{{False}}">
+    
+            <div class="form-group">
+                <label>gender</label>
+                <select class="form-control" name="form_profile_gender">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div><br>
+    
+            <div class="form-group">
+                <label>birthday</label>
+                <input class="form-control" type="date" name="form_profile_birth" placeholder="datepicker">
+            </div><br>
+    
+            <table style="width: auto; float: right;">
+                <tr>
+                    <td align="center">
+                        <input class="btn btn-success" type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+    
+        </form>
+    </div>
+
+    <div id="edit_roeute"></div>
+
+    <div id="download_score"></div>
+
+    <div id="do_semething"></div>
+</div>
+
+    {% block script %}
+    <script src="{% static 'capstone/scripts.js' %}"></script>
+    {% endblock %}
+
+{% endblock %}
