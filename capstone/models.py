@@ -9,10 +9,7 @@ class User(AbstractUser):
 class Route(models.Model):
     route_name          = models.CharField(max_length=60, unique=True)
     route_grade         = models.CharField(max_length=5)
-
-# class RoutePoints(models.Model):
-#     route_points_grade  = models.ForeignKey(Route.route_grade, related_name="route_points_grade", on_delete=models.CASCADE)
-#     route_points_points = models.IntegerField(related_name="route_points_points")
+    route_points        = models.IntegerField(default=0)
 
 class climbedRoute(models.Model):
     climbed_route_name  = models.ForeignKey(Route, related_name="climbed_route_name", on_delete=models.CASCADE)
