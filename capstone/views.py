@@ -51,7 +51,10 @@ def index(request):
         return render(request, "capstone/index.html")
 
 def staff(request):
-    return render(request, "capstone/staff.html")
+    all_routes = Route.objects.all()
+    return render(request, "capstone/staff.html", {
+        "all_routes": all_routes,
+    })
 
 def add_route(request):
     if request.method == "POST":
@@ -70,6 +73,9 @@ def add_route(request):
             })
     else: 
         return render(request, "capstone/staff.html", {})
+
+def edit_route(request):
+    return render(request, "capstone/staff.html", {})
 
 def update_profile(request):
     if request.method == "POST":

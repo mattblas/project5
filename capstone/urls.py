@@ -12,9 +12,8 @@ urlpatterns = [
 
     path("update_profile", views.update_profile, name="update_profile"),
     path("staff", views.staff, name="staff"),
-
-    # API routes
     path("add_route", views.add_route, name="add_route"),
+    path("edit_route", views.edit_route, name="edit_route"),
 
     # Shit to delate
     path("todo", views.todo, name="todo"),
