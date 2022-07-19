@@ -69,9 +69,7 @@ def add_route(request):
                 "message": "Route added successfully"
             })
     else: 
-        return render(request, "capstone/staff.html", {
-            "message": "something wen't wrong"
-        })
+        return render(request, "capstone/staff.html", {})
 
 def update_profile(request):
     if request.method == "POST":
