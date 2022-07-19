@@ -44,4 +44,9 @@ function edit_route_form(id) {
     document.querySelector('#download_score').style.display = 'none';
     document.querySelector('#do_something').style.display = 'none';
     document.querySelector('#edit_route_form').style.display = 'block';
-}
+
+    fetch(`/edit_route_form/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+})}

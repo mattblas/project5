@@ -1,6 +1,7 @@
+from urllib import response
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -57,6 +58,14 @@ def all_routes():
 
 def edit_route(request):
     return render(request, "capstone/staff.html", {})
+
+def edit_route_form(request, id):
+    r = Route.objects.get(pk = id)
+    response_data = {
+        "route_name": r.route_name,
+        "route_grade": r.route_grade
+    }
+    return JsonResponse(response_data)
 
 def staff(request):
     all_routes()
