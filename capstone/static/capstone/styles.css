@@ -4,4 +4,9 @@
 
 .nav-link {
     color: grey !important;
+    cursor: pointer;    
+}
+
+.staff-link {
+    margin: 15px;
 }
