@@ -29,6 +29,10 @@
     display: none;
 }
 
+#edit_route_form {
+    display: none;
+}
+
 #do_something {
     display: none;
 }
