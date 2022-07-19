@@ -54,7 +54,19 @@ def staff(request):
     return render(request, "capstone/staff.html")
 
 def add_route(request):
-    return render(request, "capstone/staff.html")
+    if request.method == "POST":
+        rn = request.POST["form_route_name"]
+        rg = request.POST["form_route_grade"]
+        rp = int(points_table[rg])
+        b = Route.objects.create(route_name = rn, route_grade = rg, route_points = rp)
+        b.save()
+        return render(request, "capstone/staff.html", {
+            "message": "Route added"
+        })
+    else: 
+        return render(request, "capstone/staff.html", {
+            "message": "something wen't wrong"
+        })
 
 def update_profile(request):
     if request.method == "POST":
