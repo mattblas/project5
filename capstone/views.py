@@ -48,17 +48,24 @@ def index(request):
     else:
         return render(request, "capstone/index.html")
 
+def all_routes():
+    try:
+        all_routes = Route.objects.all()
+    except:
+        all_routes = None
+    return all_routes
+
 def edit_route(request):
     return render(request, "capstone/staff.html", {})
 
 def staff(request):
-    all_routes = Route.objects.all()
+    all_routes()
     return render(request, "capstone/staff.html", {
         "all_routes": all_routes,
     })
 
 def add_route(request):
-    all_routes = Route.objects.all()
+    all_routes()
     if request.method == "POST":
         rn = request.POST["form_route_name"]
         if Route.objects.filter(route_name = rn).exists():
