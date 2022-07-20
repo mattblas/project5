@@ -52,5 +52,7 @@ function edit_route_form(id) {
     fetch(`/edit_route_form/${id}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log(data.route_name);
+        document.querySelector('#edit_form_route_name').innerHTML = data.route_name;
+        document.querySelector('#edit_form_route_grade_option').innerHTML = data.route_grade;
 })}

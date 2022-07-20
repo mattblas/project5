@@ -17,6 +17,7 @@ urlpatterns = [
 
     # API routes
     path("edit_route_form/<id>", views.edit_route_form, name="edit_route_form"),
+    path("edit_route_submit", views.edit_route_submit, name="edit_route_submit"),
 
     # Shit to delate
     path("todo", views.todo, name="todo"),

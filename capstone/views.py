@@ -56,6 +56,9 @@ def all_routes():
         all_routes = None
     return all_routes
 
+def edit_route_submit(request):
+    return JsonResponse()
+
 def edit_route(request):
     return render(request, "capstone/staff.html", {})
 
