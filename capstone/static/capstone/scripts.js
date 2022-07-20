@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#do_something_button').addEventListener('click', () => do_something());
  
     // // By default, load the inbox
-    add_new_route();
+    edit_route();
   });
 
 function add_new_route() {
@@ -52,7 +52,8 @@ function edit_route_form(id) {
     fetch(`/edit_route_form/${id}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data.route_name);
+        console.log(data.route_id);
         document.querySelector('#edit_form_route_name').innerHTML = data.route_name;
         document.querySelector('#edit_form_route_grade_option').innerHTML = data.route_grade;
+        document.querySelector('#edit_form_route_id').innerHTML = data.route_id;
 })}

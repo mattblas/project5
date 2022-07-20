@@ -2,7 +2,7 @@ from urllib import response
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from .models import User, userProfile, Route
@@ -57,7 +57,17 @@ def all_routes():
     return all_routes
 
 def edit_route_submit(request):
-    return JsonResponse()
+    all_routes()
+    if request.method == "POST":
+        route_id = int(request.POST["edit_form_route_id"])
+        print(route_id)
+        rn = request.POST["edit_form_route_name"]
+        rg = request.POST["edit_form_route_grade"]
+        b = Route.objects.get(pk=route_id)
+        b.route_name = rn
+        b.route_grade = rg
+        b.save()
+    return redirect("staff")
 
 def edit_route(request):
     return render(request, "capstone/staff.html", {})
@@ -66,7 +76,8 @@ def edit_route_form(request, id):
     r = Route.objects.get(pk = id)
     response_data = {
         "route_name": r.route_name,
-        "route_grade": r.route_grade
+        "route_grade": r.route_grade,
+        "route_id": id
     }
     return JsonResponse(response_data)
 
@@ -94,7 +105,7 @@ def add_route(request):
                 "all_routes": all_routes,
             })
     else: 
-        return render(request, "capstone/staff.html", {})
+        return redirect("staff")
 
 def update_profile(request):
     if request.method == "POST":
