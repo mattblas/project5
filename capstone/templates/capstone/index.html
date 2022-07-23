@@ -1,11 +1,49 @@
 
 {% extends "capstone/layout.html" %}
+{% load static %}
 
 {% block body %}
 <div class="container">
     <h2>INDEX</h2>
     <h7>hello {{request.user}}</h7>
 
+    <nav class="nav justify-content-center">
+        <div class="staff-link"><a id="cat_open_button" class="nav-link">Open</a></div>
+        <div class="staff-link"><a id="cat_j_m_button" class="nav-link">Junior Men</a></div>
+        <div class="staff-link"><a id="cat_j_w_button" class="nav-link">Junior Women</a></div>
+        <div class="staff-link"><a id="cat_s_m_button" class="nav-link">Men</a></div>
+        <div class="staff-link"><a id="cat_s_w_button" class="nav-link">Women</a></div>
+        <div class="staff-link"><a id="cat_all_time_button" class="nav-link">All Time</a></div>
+    </nav><hr>
     
+    <div id="cat_open">
+        <h4 align="left">Category: Open</h4>
+    </div>
+
+    <div id="cat_j_m">
+        <h4 align="left">Category: Junior Men</h4>
+    </div>
+
+    <div id="cat_j_w">
+        <h4 align="left">Category: Junior Women</h4>
+    </div>
+
+    <div id="cat_s_m">
+        <h4 align="left">Category: Men</h4>
+    </div>
+
+    <div id="cat_s_w">
+        <h4 align="left">Category: Women</h4>
+    </div>
+
+    <div id="cat_all_time">
+        <h4 align="left">Category: All Time</h4>
+    </div>
+
 </div>
+
+    {% block script %}
+        <script src="{% static 'capstone/index.js' %}"></script>
+    {% endblock %}
+
 {% endblock %}
