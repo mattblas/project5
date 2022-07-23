@@ -4,7 +4,6 @@ from django.db import IntegrityError
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
-
 from .models import User, userProfile, Route
 
 points_table = {
@@ -67,7 +66,12 @@ def edit_route_submit(request):
         b.route_name = rn
         b.route_grade = rg
         b.save()
-    return redirect("staff")
+        all_routes()
+    return render(request, "capstone/staff.html", {
+        "all_routes": all_routes,
+        "message": "Route updated successfully",
+
+    })
 
 def edit_route(request):
     return render(request, "capstone/staff.html", {})
