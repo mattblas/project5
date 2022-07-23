@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // // Use buttons to toggle between views
+    document.querySelector('#search_results_button').addEventListener('click', () => search_results());
     document.querySelector('#cat_open_button').addEventListener('click', () => cat_open());
     document.querySelector('#cat_j_m_button').addEventListener('click', () => cat_j_m());
     document.querySelector('#cat_j_w_button').addEventListener('click', () => cat_j_w());
@@ -12,16 +13,30 @@ document.addEventListener('DOMContentLoaded', function() {
     cat_open();
   });
 
+  function search_results() {
+    document.querySelector('#search_results').style.display = 'block';
+    document.querySelector('#cat_open').style.display = 'none';
+    document.querySelector('#cat_j_m').style.display = 'none';
+    document.querySelector('#cat_j_w').style.display = 'none';
+    document.querySelector('#cat_s_m').style.display = 'none';
+    document.querySelector('#cat_s_w').style.display = 'none';
+    document.querySelector('#cat_all_time').style.display = 'none';
+
+}
+
   function cat_open() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'block';
     document.querySelector('#cat_j_m').style.display = 'none';
     document.querySelector('#cat_j_w').style.display = 'none';
     document.querySelector('#cat_s_m').style.display = 'none';
     document.querySelector('#cat_s_w').style.display = 'none';
     document.querySelector('#cat_all_time').style.display = 'none';
+
 }
 
 function cat_j_m() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'none';
     document.querySelector('#cat_j_m').style.display = 'block';
     document.querySelector('#cat_j_w').style.display = 'none';
@@ -31,6 +46,7 @@ function cat_j_m() {
 }
 
 function cat_j_w() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'none';
     document.querySelector('#cat_j_m').style.display = 'none';
     document.querySelector('#cat_j_w').style.display = 'block';
@@ -40,6 +56,7 @@ function cat_j_w() {
 }
 
 function cat_s_m() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'none';
     document.querySelector('#cat_j_m').style.display = 'none';
     document.querySelector('#cat_j_w').style.display = 'none';
@@ -49,6 +66,7 @@ function cat_s_m() {
 }
 
 function cat_s_w() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'none';
     document.querySelector('#cat_j_m').style.display = 'none';
     document.querySelector('#cat_j_w').style.display = 'none';
@@ -58,6 +76,7 @@ function cat_s_w() {
 }
 
 function cat_all_time() {
+    document.querySelector('#search_results').style.display = 'none';
     document.querySelector('#cat_open').style.display = 'none';
     document.querySelector('#cat_j_m').style.display = 'none';
     document.querySelector('#cat_j_w').style.display = 'none';
