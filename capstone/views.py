@@ -97,7 +97,8 @@ def add_route(request):
         rn = request.POST["form_route_name"]
         if Route.objects.filter(route_name = rn).exists():
             return render(request, "capstone/staff.html", {
-        "message": "Route already exists"
+        "message": "Route already exists",
+        "all_routes": all_routes,
         })
         else:      
             rg = request.POST["form_route_grade"]
